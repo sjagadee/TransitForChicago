@@ -12,9 +12,9 @@
         android:background="@drawable/rt_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:padding="5dp"
+        android:layout_margin="5dp"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:text="3b"/>
 
     <TextView

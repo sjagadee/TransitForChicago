@@ -24,12 +24,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ListView lvRoutes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView lvRoutes = (ListView)findViewById(R.id.lvRoutes);
+        lvRoutes = (ListView)findViewById(R.id.lvRoutes);
 
         new GetDataForTheList().execute("http://www.ctabustracker.com/bustime/api/v2/getroutes?key=6Qvj3UgzA28GcWJPPaJf8bRAV&format=json");
     }
@@ -104,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<RoutesModel> result) {
             super.onPostExecute(result);
 
-            // TODO: use list and set up list view
+            RoutesAdapter routesAdapter = new RoutesAdapter(getApplicationContext(), R.layout.list_row_routes, result);
+
+            lvRoutes.setAdapter(routesAdapter);
         }
     }
 
